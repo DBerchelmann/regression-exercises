@@ -2,15 +2,10 @@
 import pandas as pd
 import numpy as np
 import os
+
 # acquire
 from env import host, user, password
 from pydataset import data
-
-# visualize
-import seaborn as sns
-import matplotlib.pyplot as plt
-plt.rc('figure', figsize=(11, 9))
-plt.rc('font', size=13)
 
 # turn off pink warning boxes
 import warnings
@@ -88,6 +83,10 @@ def clean_telco(df):
     
     
     df["total_charges"] = pd.to_numeric(df.total_charges, errors='coerce')
+    
+    df.total_charges = df.total_charges.replace(r'^\s*$', np.nan, regex=True)
+    
+    df = df.fillna(0)
     
     
     df = df.dropna()
