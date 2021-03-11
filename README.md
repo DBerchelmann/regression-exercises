@@ -2,7 +2,7 @@
 
 ----
 
-This repository will hold all of my regression exercices in additionl to files like wrangle.py.
+This repository will hold all of my regression exercices in addition to files like wrangle.py.
 
 <font color = blue>wrangle.py</font> will hold functions that will do the following:
 
