@@ -31,7 +31,7 @@ def new_telco_data():
     '''
     This function reads data from the Codeup db into a df.
     '''
-    sql_query = 'SELECT customer_id, monthly_charges, total_charges, tenure \
+    sql_query = 'SELECT customer_id, monthly_charges, tenure, total_charges \
                 FROM customers \
                 JOIN contract_types USING (contract_type_id) \
                 WHERE contract_type = "Two year" ;'
@@ -45,9 +45,8 @@ def acquire_telco(cached=False):
 
 
     '''
-    This function reads in titanic data from Codeup database and writes data to
-    a csv file if cached == False or if cached == True reads in titanic df from
-    a csv file, returns df.
+  This funtion is pulling in the new_telco_data function and createing a .csv called 
+  telco_log_df, if not already made.
     '''
         
 
@@ -90,6 +89,9 @@ def clean_telco(df):
     
     
     df = df.dropna()
+    
+    df.index = df.customer_id
+    df = df.drop(columns='customer_id')
     
     return df
 
