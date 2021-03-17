@@ -148,7 +148,7 @@ def better_than_baseline(x, y, df):
         return (f'The sum of squared errors residual {round(SSE_baseline, 2)} performs better than the SSE model of {round(SSE, 2)}')
     
     
-def model_significance(x, y, f):
+
     
     
 
